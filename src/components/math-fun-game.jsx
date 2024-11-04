@@ -126,12 +126,16 @@ function MathFunGame() {
 
   React.useEffect(() => {
     if (currentProblem) {
-      const progressImages = selectedThemes.includes("Animals")
+      const progressImages = selectedThemes.includes("Video Games")
+        ? videogamesProgressImages
+        : selectedThemes.includes("Animals")
         ? animalProgressImages
         : vehicleProgressImages;
+  
       setCurrentImage(progressImages[imageSetIndex % progressImages.length]);
     }
   }, [currentProblem, selectedThemes, imageSetIndex]);
+  
 
   React.useEffect(() => {
     if (correctAnswers > 0 && correctAnswers % 5 === 0) {
