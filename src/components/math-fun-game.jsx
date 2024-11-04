@@ -19,26 +19,29 @@ function MathFunGame() {
   const [imageSetIndex, setImageSetIndex] = React.useState(0);
 
   const animalProgressImages = [
-    "https://media.istockphoto.com/id/1154370446/photo/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=kkZiaB9Q-GbY5gjf6WWURzEpLzNrpjZp_tn09GB21bI=",
-    "https://media.istockphoto.com/id/1154370446/photo/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=kkZiaB9Q-GbY5gjf6WWURzEpLzNrpjZp_tn09GB21bI=",
-    "https://media.istockphoto.com/id/1154370446/photo/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=kkZiaB9Q-GbY5gjf6WWURzEpLzNrpjZp_tn09GB21bI=",
+    "animals-meerkat.jpg",
+    "animals-chick.jpg",
+    "animals-octopus.jpg",
+    "animals-squirrel.jpg",
   ];
 
   const animalCelebrationGifs = [
-    "https://i0.wp.com/images.onwardstate.com/uploads/2015/05/oie_14175751vZSQRLEn.gif?fit=650%2C408&ssl=1",
-    "https://i0.wp.com/images.onwardstate.com/uploads/2015/05/oie_14175751vZSQRLEn.gif?fit=650%2C408&ssl=1",
-    "https://i0.wp.com/images.onwardstate.com/uploads/2015/05/oie_14175751vZSQRLEn.gif?fit=650%2C408&ssl=1",
-    "https://i0.wp.com/images.onwardstate.com/uploads/2015/05/oie_14175751vZSQRLEn.gif?fit=650%2C408&ssl=1",
+    "animals-corgi.jpg",
+    "animals-duck.jpg",
+    "animals-sealion.jpg",
   ];
 
   const vehicleProgressImages = [
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9pE1unAgfEwRJT9oLvHfrm_JnSerVBwOLPg&s",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9pE1unAgfEwRJT9oLvHfrm_JnSerVBwOLPg&s",
+    "vehicles-excavator.jpg",
+    "vehicles-excavator2.jpg",
+    "vehicles-loader.jpg",
+    "vehicles-railroad.jpg",
   ];
 
   const vehicleCelebrationGifs = [
-    "https://cdn.dribbble.com/users/8156988/screenshots/16260376/media/d72c6c8fe5a5cded14961afbe4590e2d.gif",
-    "https://cdn.dribbble.com/users/8156988/screenshots/16260376/media/d72c6c8fe5a5cded14961afbe4590e2d.gif",
+    "vehicles-excavator.jpg",
+    "vehicles-car.jpg",
+    "vehicles-roller.jpg",
   ];
 
   const renderVisualProblem = () => {
@@ -360,7 +363,7 @@ function MathFunGame() {
             )
           )}
           {currentImage && (
-            <div className="relative w-full h-48">
+            <div className="relative w-full h-full">
               <img
                 src={currentImage}
                 alt="Progress image showing theme"
