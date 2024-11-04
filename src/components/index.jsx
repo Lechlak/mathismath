@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-function MathFunGame() {
+function MainComponent() {
   const [selectedOperations, setSelectedOperations] = React.useState([]);
   const [selectedFactFamily, setSelectedFactFamily] = React.useState([]);
   const [currentProblem, setCurrentProblem] = React.useState(null);
@@ -21,31 +21,26 @@ function MathFunGame() {
   const [imageSetIndex, setImageSetIndex] = React.useState(0);
 
   const animalProgressImages = [
-    "https://ucarecdn.com/0c5ab8e9-3fe9-4b77-9e5a-30f891ed50d7/-/format/auto/",
-    "https://ucarecdn.com/a2d62f97-8119-4e32-b042-cfdc8e6d959d/-/format/auto/",
-    "https://ucarecdn.com/baa12df7-fcee-4bfb-b4a6-16f76a590b9f/-/format/auto/",
+    "https://media.istockphoto.com/id/1154370446/photo/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=kkZiaB9Q-GbY5gjf6WWURzEpLzNrpjZp_tn09GB21bI=",
+    "https://media.istockphoto.com/id/1154370446/photo/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=kkZiaB9Q-GbY5gjf6WWURzEpLzNrpjZp_tn09GB21bI=",
+    "https://media.istockphoto.com/id/1154370446/photo/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=kkZiaB9Q-GbY5gjf6WWURzEpLzNrpjZp_tn09GB21bI=",
   ];
 
   const animalCelebrationGifs = [
-    "https://ucarecdn.com/f8c2aaa3-0e6d-4674-aff1-44ba99d58cbb/",
-    "https://ucarecdn.com/750c6fb0-3b1a-43fc-ab59-ef6add32d0ba/",
-    "https://ucarecdn.com/152532d8-5d24-4533-9de0-33dfd98c5f2c/",
-    "https://ucarecdn.com/56cce560-b98e-4fa5-940d-18dd4b456a76/",
+    "https://i0.wp.com/images.onwardstate.com/uploads/2015/05/oie_14175751vZSQRLEn.gif?fit=650%2C408&ssl=1",
+    "https://i0.wp.com/images.onwardstate.com/uploads/2015/05/oie_14175751vZSQRLEn.gif?fit=650%2C408&ssl=1",
+    "https://i0.wp.com/images.onwardstate.com/uploads/2015/05/oie_14175751vZSQRLEn.gif?fit=650%2C408&ssl=1",
+    "https://i0.wp.com/images.onwardstate.com/uploads/2015/05/oie_14175751vZSQRLEn.gif?fit=650%2C408&ssl=1",
   ];
 
   const vehicleProgressImages = [
-    "https://ucarecdn.com/ef80f085-f8ec-43db-90c8-bb1ae7062f04/-/format/auto/",
-    "https://ucarecdn.com/7133fe61-15e4-402b-a70d-19c4df7cf969/-/format/auto/",
-    "https://ucarecdn.com/b0b5b200-dc4c-4548-b285-9929e1d1ea86/-/format/auto/",
-    "https://ucarecdn.com/99a9a95b-750e-43a3-9885-4e57c5a49449/-/format/auto/",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9pE1unAgfEwRJT9oLvHfrm_JnSerVBwOLPg&s",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9pE1unAgfEwRJT9oLvHfrm_JnSerVBwOLPg&s",
   ];
 
   const vehicleCelebrationGifs = [
-    "https://ucarecdn.com/c6a48a7c-2566-4940-b6f6-dd9a1f146d41/",
-    "https://ucarecdn.com/fec17503-fd04-4c50-b562-01b8609bb4da/",
-    "https://ucarecdn.com/1d40a444-cf5e-41ba-a62a-a1225d4cc499/",
-    "https://ucarecdn.com/cf4914e6-6d56-433a-bd56-ed7a0c01635e/",
-    "https://ucarecdn.com/f78339e0-3d75-426d-a6bd-3533da84ffb4/",
+    "https://cdn.dribbble.com/users/8156988/screenshots/16260376/media/d72c6c8fe5a5cded14961afbe4590e2d.gif",
+    "https://cdn.dribbble.com/users/8156988/screenshots/16260376/media/d72c6c8fe5a5cded14961afbe4590e2d.gif",
   ];
 
   React.useEffect(() => {
@@ -196,7 +191,7 @@ function MathFunGame() {
       {!currentProblem && (
         <div className="flex flex-col justify-center items-center h-screen space-y-10">
           <img
-            src="https://ucarecdn.com/6028b0e2-7b63-49e8-80d2-fc91559a48d1/-/format/auto/"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9pE1unAgfEwRJT9oLvHfrm_JnSerVBwOLPg&s"
             alt="Game logo"
             className="w-[200px] h-[200px] mb-8"
           />
@@ -359,12 +354,12 @@ function MathFunGame() {
   );
 }
 
-function MathFunGameStory() {
+function StoryComponent() {
   return (
     <div>
-      <MathFunGame />
+      <MainComponent />
     </div>
   );
 }
 
-export default MathFunGame;
+export default MainComponent;
