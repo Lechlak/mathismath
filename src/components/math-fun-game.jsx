@@ -2,8 +2,6 @@
 import React from "react";
 
 function MathFunGame() {
-  const ISSERVER = typeof window === "undefined";
-if (!ISSERVER) localStorage.setItem(key, value);
   const [selectedOperations, setSelectedOperations] = React.useState([]);
   const [selectedFactFamily, setSelectedFactFamily] = React.useState([]);
   const [currentProblem, setCurrentProblem] = React.useState(null);
@@ -14,10 +12,7 @@ if (!ISSERVER) localStorage.setItem(key, value);
   const [masteredFamilies, setMasteredFamilies] = React.useState([]);
   const [currentImage, setCurrentImage] = React.useState(null);
   const [progress, setProgress] = React.useState({});
-  const [selectedThemes, setSelectedThemes] = React.useState(() => {
-    const storedThemes = localStorage.getItem("selectedThemes");
-    return storedThemes ? JSON.parse(storedThemes) : [];
-  });
+  const [selectedThemes, setSelectedThemes] = React.useState([]);
   const [showThemeSelector, setShowThemeSelector] = React.useState(false);
   const [error, setError] = React.useState("");
   const [imageSetIndex, setImageSetIndex] = React.useState(0);
@@ -44,42 +39,6 @@ if (!ISSERVER) localStorage.setItem(key, value);
     "https://cdn.dribbble.com/users/8156988/screenshots/16260376/media/d72c6c8fe5a5cded14961afbe4590e2d.gif",
     "https://cdn.dribbble.com/users/8156988/screenshots/16260376/media/d72c6c8fe5a5cded14961afbe4590e2d.gif",
   ];
-
-  React.useEffect(() => {
-    const storedData = localStorage.getItem("mathGameData");
-    if (storedData) {
-      const { operations, factFamily, correctCount, mastered, progress } =
-        JSON.parse(storedData);
-      setSelectedOperations(operations);
-      setSelectedFactFamily(factFamily);
-      setCorrectAnswers(correctCount);
-      setMasteredFamilies(mastered);
-      setProgress(progress);
-    }
-  }, []);
-
-  React.useEffect(() => {
-    localStorage.setItem(
-      "mathGameData",
-      JSON.stringify({
-        operations: selectedOperations,
-        factFamily: selectedFactFamily,
-        correctCount: correctAnswers,
-        mastered: masteredFamilies,
-        progress: progress,
-      })
-    );
-  }, [
-    selectedOperations,
-    selectedFactFamily,
-    correctAnswers,
-    masteredFamilies,
-    progress,
-  ]);
-
-  React.useEffect(() => {
-    localStorage.setItem("selectedThemes", JSON.stringify(selectedThemes));
-  }, [selectedThemes]);
 
   React.useEffect(() => {
     if (currentProblem) {
