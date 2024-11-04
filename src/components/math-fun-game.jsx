@@ -245,7 +245,7 @@ function MathFunGame() {
       {!currentProblem && (
         <div className="flex flex-col justify-center items-center h-screen space-y-10">
           <img
-            src="/math-is-math.jpeg"
+            src="/math-is-math.png"
             alt="Game logo"
             className="h-[200px] mb-8"
           />
