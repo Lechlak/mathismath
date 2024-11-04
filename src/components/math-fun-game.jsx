@@ -44,13 +44,13 @@ function MathFunGame() {
     "vehicles-roller.gif",
   ];
 
-  const videogamesProgressImages = [
+  const videoGamesProgressImages = [
     "vg-bob.jpg",
     "vg-fortnitels.jpg",
     "vg-mag.jpeg",
   ];
 
-  const videogamesCelebrationGifs = [
+  const videoGamesCelebrationGifs = [
     "vg-cat.gif",
     "vg-dp.gif",
     "vg-goku.gif",
@@ -127,7 +127,7 @@ function MathFunGame() {
   React.useEffect(() => {
     if (currentProblem) {
       const progressImages = selectedThemes.includes("Video Games")
-        ? videogamesProgressImages
+        ? videoGamesProgressImages
         : selectedThemes.includes("Animals")
         ? animalProgressImages
         : vehicleProgressImages;
@@ -143,7 +143,7 @@ function MathFunGame() {
       setTimeout(() => {
         setShowCelebration(false);
         setImageSetIndex((prev) => prev + 1);
-      }, 3000);
+      }, 5000);
     }
   }, [correctAnswers]);
 
