@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Button from "../components/button";
 
 function MathFunGame() {
   const [selectedOperations, setSelectedOperations] = React.useState([]);
