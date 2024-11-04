@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Button from "../components/button";
 
 function MathFunGame() {
   const [selectedOperations, setSelectedOperations] = React.useState([]);
@@ -19,7 +18,6 @@ function MathFunGame() {
   const [imageSetIndex, setImageSetIndex] = React.useState(0);
 
   const animalProgressImages = [
-    "/animals-meerkat.jpg",
     "https://media.istockphoto.com/id/1154370446/photo/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=kkZiaB9Q-GbY5gjf6WWURzEpLzNrpjZp_tn09GB21bI=",
     "https://media.istockphoto.com/id/1154370446/photo/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=kkZiaB9Q-GbY5gjf6WWURzEpLzNrpjZp_tn09GB21bI=",
     "https://media.istockphoto.com/id/1154370446/photo/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=kkZiaB9Q-GbY5gjf6WWURzEpLzNrpjZp_tn09GB21bI=",
@@ -41,6 +39,74 @@ function MathFunGame() {
     "https://cdn.dribbble.com/users/8156988/screenshots/16260376/media/d72c6c8fe5a5cded14961afbe4590e2d.gif",
     "https://cdn.dribbble.com/users/8156988/screenshots/16260376/media/d72c6c8fe5a5cded14961afbe4590e2d.gif",
   ];
+
+  const renderVisualProblem = () => {
+    if (
+      !currentProblem ||
+      !selectedAnswer ||
+      selectedAnswer === currentProblem.answer
+    )
+      return null;
+
+    const numbers = currentProblem.question.split(/[\+\-\x\÷]/);
+    const firstNumber = parseInt(numbers[0]);
+    const secondNumber = parseInt(numbers[1]);
+    const operation = currentProblem.question.match(/[\+\-\x\÷]/)[0];
+
+    if (operation === "x") {
+      return (
+        <div className="w-1/2 mx-auto">
+          <div
+            className="grid"
+            style={{ gridTemplateColumns: `repeat(${firstNumber}, 1fr)` }}
+          >
+            {[...Array(firstNumber * secondNumber)].map((_, i) => (
+              <div
+                key={i}
+                className="w-4 h-4 m-1 rounded-full bg-blue-500"
+              ></div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    if (operation === "÷") {
+      return (
+        <div className="w-1/2 mx-auto">
+          <div
+            className="grid"
+            style={{ gridTemplateColumns: `repeat(${secondNumber}, 1fr)` }}
+          >
+            {[...Array(firstNumber)].map((_, i) => (
+              <div
+                key={i}
+                className="w-4 h-4 m-1 rounded-full bg-blue-500"
+              ></div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="flex flex-wrap items-center justify-center gap-4">
+        <div className="flex flex-wrap gap-2">
+          {[...Array(firstNumber)].map((_, i) => (
+            <div key={i} className="w-4 h-4 rounded-full bg-blue-500"></div>
+          ))}
+        </div>
+        <div className="text-2xl font-bold">{operation}</div>
+        <div className="flex flex-wrap gap-2">
+          {[...Array(secondNumber)].map((_, i) => (
+            <div key={i} className="w-4 h-4 rounded-full bg-green-500"></div>
+          ))}
+        </div>
+        <div className="text-2xl font-bold">=</div>
+        <div className="w-8 h-8 rounded-full border-2 border-dashed border-gray-400"></div>
+      </div>
+    );
+  };
 
   React.useEffect(() => {
     if (currentProblem) {
@@ -286,7 +352,10 @@ function MathFunGame() {
             <div className="text-green-600 font-bold">Correct! 🎉</div>
           ) : (
             selectedAnswer !== null && (
-              <div className="text-red-600 font-bold">Try again</div>
+              <div className="space-y-4">
+                <div className="text-red-600 font-bold">Try again</div>
+                {renderVisualProblem()}
+              </div>
             )
           )}
           {currentImage && (
