@@ -209,13 +209,18 @@ function MathFunGame() {
     );
   }
 
-  const celebrationGif = selectedThemes.includes("Animals")
-    ? animalCelebrationGifs[
-        Math.floor(Math.random() * animalCelebrationGifs.length)
-      ]
-    : vehicleCelebrationGifs[
-        Math.floor(Math.random() * vehicleCelebrationGifs.length)
-      ];
+  const celebrationGif = selectedThemes.includes("Video Games")
+  ? videoGamesCelebrationGifs[
+      Math.floor(Math.random() * videoGamesCelebrationGifs.length)
+    ]
+  : selectedThemes.includes("Animals")
+  ? animalCelebrationGifs[
+      Math.floor(Math.random() * animalCelebrationGifs.length)
+    ]
+  : vehicleCelebrationGifs[
+      Math.floor(Math.random() * vehicleCelebrationGifs.length)
+    ];
+
 
   return (
     <div className="p-4 relative bg-white text-black space-y-10">
