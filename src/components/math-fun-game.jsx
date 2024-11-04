@@ -245,9 +245,9 @@ function MathFunGame() {
       {!currentProblem && (
         <div className="flex flex-col justify-center items-center h-screen space-y-10">
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9pE1unAgfEwRJT9oLvHfrm_JnSerVBwOLPg&s"
+            src="/math-is-math.jpeg"
             alt="Game logo"
-            className="w-[200px] h-[200px] mb-8"
+            className="mb-8"
           />
           <div className="flex flex-wrap justify-center space-x-8 mb-8">
             {["Addition", "Subtraction", "Multiplication", "Division"].map(
