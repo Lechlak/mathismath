@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Button({ text, icon, onClick, className }) {
   return (

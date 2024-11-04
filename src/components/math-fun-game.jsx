@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import Button from "../components/button";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 function MathFunGame() {
   const [selectedOperations, setSelectedOperations] = React.useState([]);
