@@ -2,6 +2,8 @@
 import React from "react";
 
 function MathFunGame() {
+  const ISSERVER = typeof window === "undefined";
+if (!ISSERVER) localStorage.setItem(key, value);
   const [selectedOperations, setSelectedOperations] = React.useState([]);
   const [selectedFactFamily, setSelectedFactFamily] = React.useState([]);
   const [currentProblem, setCurrentProblem] = React.useState(null);
