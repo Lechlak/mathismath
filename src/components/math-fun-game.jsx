@@ -26,9 +26,9 @@ function MathFunGame() {
   ];
 
   const animalCelebrationGifs = [
-    "animals-corgi.jpg",
-    "animals-duck.jpg",
-    "animals-sealion.jpg",
+    "animals-corgi.gif",
+    "animals-duck.gif",
+    "animals-sealion.gif",
   ];
 
   const vehicleProgressImages = [
@@ -39,9 +39,21 @@ function MathFunGame() {
   ];
 
   const vehicleCelebrationGifs = [
-    "vehicles-excavator.jpg",
-    "vehicles-car.jpg",
-    "vehicles-roller.jpg",
+    "vehicles-excavator.gif",
+    "vehicles-car.gif",
+    "vehicles-roller.gif",
+  ];
+
+  const videogamesProgressImages = [
+    "vg-bob.jpg",
+    "vg-fortnitels.jpg",
+    "vg-mag.jpeg",
+  ];
+
+  const videogamesCelebrationGifs = [
+    "vg-cat.gif",
+    "vg-dp.gif",
+    "vg-goku.gif",
   ];
 
   const renderVisualProblem = () => {
