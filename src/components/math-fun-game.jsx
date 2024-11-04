@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-function MainComponent() {
+function MathFunGame() {
   const [selectedOperations, setSelectedOperations] = React.useState([]);
   const [selectedFactFamily, setSelectedFactFamily] = React.useState([]);
   const [currentProblem, setCurrentProblem] = React.useState(null);
@@ -354,12 +354,12 @@ function MainComponent() {
   );
 }
 
-function StoryComponent() {
+function MathFunGameStory() {
   return (
     <div>
-      <MainComponent />
+      <MathFunGame />
     </div>
   );
 }
 
-export default MainComponent;
+export default MathFunGame;

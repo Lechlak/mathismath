@@ -6,7 +6,7 @@ export const config = {
 
 export function middleware(request) {
   const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-createxyz-project-id", "9c575e9b-2393-4508-9c7f-d82fd21d39d2");
+  requestHeaders.set("x-createxyz-project-id", "5022cc93-aaba-4c23-8c55-4dda984d710d");
 
   request.nextUrl.href = `https://www.create.xyz/${request.nextUrl.pathname}`;
 
