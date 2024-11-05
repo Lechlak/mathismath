@@ -287,7 +287,7 @@ function MathFunGame() {
                 text={num + 1}
                 icon={
                   selectedFactFamily.includes(num + 1)
-                    ? "fa-check-circle"
+                    ? "faCheckCircle"
                     : ""
                 }
                 onClick={() =>
@@ -313,16 +313,16 @@ function MathFunGame() {
           </div>
           <div className="flex flex-wrap justify-center space-x-8 mb-8">
             {[
-              { name: "Animals", icon: "far fa-paw" },
-              { name: "Video Games", icon: "far fa-gamepad" },
-              { name: "Vehicles", icon: "far fa-car" },
+              { name: "Animals", icon: "faPaw" },
+              { name: "Video Games", icon: "faGamepad" },
+              { name: "Vehicles", icon: "faCar" },
             ].map((theme) => (
               <Button
                 key={theme.name}
                 text={theme.name}
                 icon={
                   selectedThemes.includes(theme.name)
-                    ? "far fa-check-circle"
+                    ? "faCheckCircle"
                     : theme.icon
                 }
                 onClick={() => toggleTheme(theme.name)}
