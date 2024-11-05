@@ -230,6 +230,7 @@ function MathFunGame() {
       <div className="absolute top-0 right-0 flex space-x-8">
         {currentProblem && (
           <Button
+            text="Home"
             icon="faHome"
             onClick={() => {
               setSelectedOperations([]);
@@ -260,7 +261,7 @@ function MathFunGame() {
                   text={operation}
                   icon={
                     selectedOperations.includes(operation)
-                      ? "far fa-check-circle"
+                      ? "faCheckCircle"
                       : ""
                   }
                   onClick={() =>
@@ -286,7 +287,7 @@ function MathFunGame() {
                 text={num + 1}
                 icon={
                   selectedFactFamily.includes(num + 1)
-                    ? "far fa-check-circle"
+                    ? "fa-check-circle"
                     : ""
                 }
                 onClick={() =>
