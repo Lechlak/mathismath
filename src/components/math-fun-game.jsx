@@ -252,8 +252,8 @@ function MathFunGame() {
             alt="Game logo"
             className="h-[200px] mb-8"
           />
-                <FontAwesomeIcon icon={RegularIcons.faHome} /> 
-                <FontAwesomeIcon icon={SolidIcons.faHome} /> 
+                <FontAwesomeIcon icon={faHome} /> 
+                <FontAwesomeIcon icon={faHome} /> 
           <div className="flex flex-wrap justify-center space-x-8 mb-8">
             {["Addition", "Subtraction", "Multiplication", "Division"].map(
               (operation) => (
