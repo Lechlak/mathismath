@@ -129,7 +129,7 @@ function MathFunGame() {
 
   React.useEffect(() => {
     if (currentProblem) {
-      const progressImages = selectedThemes.includes("Video Games")
+      const progressImages = selectedThemes.includes("Gaming")
         ? videoGamesProgressImages
         : selectedThemes.includes("Animals")
         ? animalProgressImages
@@ -212,7 +212,7 @@ function MathFunGame() {
     );
   }
 
-  const celebrationGif = selectedThemes.includes("Video Games")
+  const celebrationGif = selectedThemes.includes("Gaming")
   ? videoGamesCelebrationGifs[
       Math.floor(Math.random() * videoGamesCelebrationGifs.length)
     ]
@@ -314,7 +314,7 @@ function MathFunGame() {
           <div className="flex flex-wrap justify-center space-x-8 mb-8">
             {[
               { name: "Animals", icon: "faPaw" },
-              { name: "Video Games", icon: "faGamepad" },
+              { name: "Gaming", icon: "faGamepad" },
               { name: "Vehicles", icon: "faCar" },
             ].map((theme) => (
               <Button
