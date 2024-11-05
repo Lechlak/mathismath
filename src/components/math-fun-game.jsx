@@ -230,7 +230,7 @@ function MathFunGame() {
       <div className="absolute top-0 right-0 flex space-x-8">
         {currentProblem && (
           <Button
-            icon="far fa-home"
+            icon="SolidIcons.faHome"
             onClick={() => {
               setSelectedOperations([]);
               setSelectedFactFamily([]);
