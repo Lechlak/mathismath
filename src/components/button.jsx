@@ -23,7 +23,8 @@ function ButtonStory() {
   return (
     <div className="flex space-x-4 p-4">
       <Button text="Sign in" />
-      <Button icon="fa-shopping-cart" />
+      <Button icon="fa-shopping-cart" /><i className="fa fa-check-circle"></i>
+
     </div>
   );
 }
