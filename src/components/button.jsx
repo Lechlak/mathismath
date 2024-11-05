@@ -14,19 +14,11 @@ function Button({ text, icon, onClick, className }) {
       }
     >
       <div className="flex items-center justify-center">
-        {icon && <FontAwesomeIcon icon="far fa-check-circle" className={`${text ? "mr-2" : ""}`} />} {/* Use FontAwesomeIcon here */}
+        {icon && <FontAwesomeIcon icon={icon} className={`${text ? "mr-2" : ""}`} />} {/* Use FontAwesomeIcon here */}
         {text}
+        <FontAwesomeIcon icon={far fa-home} /> 
       </div>
     </button>
-  );
-}
-
-function ButtonStory() {
-  return (
-    <div className="flex space-x-4 p-4">
-      <Button text="Sign in" />
-      <Button icon={faShoppingCart} /> {/* Pass the imported icon here */}
-    </div>
   );
 }
 
