@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesomeIcon
-import { faCheckCircle, faHome, faPaw, faGamepad, faCar } from '@fortawesome/free-solid-svg-icons'; // Import the specific icons you need
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import * as SolidIcons from '@fortawesome/free-solid-svg-icons';
 
 function Button({ text, icon, onClick, className }) {
   return (
