@@ -3,7 +3,6 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesomeIcon
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'; // Import the specific icon you need
 
-
 function Button({ text, icon, onClick, className }) {
   return (
     <button
@@ -14,7 +13,7 @@ function Button({ text, icon, onClick, className }) {
       }
     >
       <div className="flex items-center justify-center">
-        {icon && <i className={`fas ${icon} ${text ? "mr-2" : ""}`}></i>}
+        {icon && <FontAwesomeIcon icon={icon} className={`${text ? "mr-2" : ""}`} />} {/* Use FontAwesomeIcon here */}
         {text}
       </div>
     </button>
@@ -25,8 +24,7 @@ function ButtonStory() {
   return (
     <div className="flex space-x-4 p-4">
       <Button text="Sign in" />
-      <Button icon="fa-shopping-cart" /><i className="fa fa-check-circle"></i>
-
+      <Button icon={faShoppingCart} /> {/* Pass the imported icon here */}
     </div>
   );
 }
