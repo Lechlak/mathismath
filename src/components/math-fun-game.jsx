@@ -155,13 +155,13 @@ function MathFunGame() {
     const num = factFamily[Math.floor(Math.random() * factFamily.length)];
     const result = Math.floor(Math.random() * 12) + 1;
     switch (operation) {
-      case "Addition":
+      case "+":
         return { question: `${num} + ${result} = ?`, answer: num + result };
-      case "Subtraction":
+      case "-":
         return { question: `${num + result} - ${num} = ?`, answer: result };
-      case "Multiplication":
+      case "x":
         return { question: `${num} x ${result} = ?`, answer: num * result };
-      case "Division":
+      case "/":
         return { question: `${num * result} ÷ ${num} = ?`, answer: result };
       default:
         return { question: "", answer: 0 };
@@ -254,7 +254,7 @@ function MathFunGame() {
             className="h-[200px] mb-8"
           />
           <div className="flex flex-wrap justify-center space-x-8 mb-8">
-            {["Addition", "Subtraction", "Multiplication", "Division"].map(
+            {["+", "-", "x", "/"].map(
               (operation) => (
                 <Button
                   key={operation}
