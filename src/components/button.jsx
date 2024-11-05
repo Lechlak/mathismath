@@ -14,7 +14,10 @@ function Button({ text, icon, onClick, className }) {
       }
     >
       <div className="flex items-center justify-center">
-          {text}
+        {icon && <FontAwesomeIcon icon={icon} className={`${text ? "mr-2" : ""}`} />} {/* Use FontAwesomeIcon here */}
+        {text}
+        { text && <FontAwesomeIcon icon={faHome} className="mr-2" /> }
+
       </div>
     </button>
   );
