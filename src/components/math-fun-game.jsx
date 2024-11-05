@@ -3,6 +3,7 @@ import React from "react";
 import Button from "../components/button";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as SolidIcons from '@fortawesome/free-solid-svg-icons';
+import * as RegularIcons from '@fortawesome/free-regular-svg-icons'; // Import from free-regular-svg-icons
 
 
 function MathFunGame() {

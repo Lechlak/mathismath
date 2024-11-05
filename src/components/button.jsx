@@ -2,6 +2,7 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as SolidIcons from '@fortawesome/free-solid-svg-icons';
+import * as RegularIcons from '@fortawesome/free-regular-svg-icons'; // Import from free-regular-svg-icons
 
 function Button({ text, icon, onClick, className }) {
   return (
