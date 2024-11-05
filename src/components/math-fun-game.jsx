@@ -115,13 +115,13 @@ function MathFunGame() {
             <div key={i} className="w-4 h-4 rounded-full bg-blue-500"></div>
           ))}
         </div>
-        <div className="text-2xl font-bold">{operation}</div>
+        <div className="text-2xl ">{operation}</div>
         <div className="flex flex-wrap gap-2">
           {[...Array(secondNumber)].map((_, i) => (
             <div key={i} className="w-4 h-4 rounded-full bg-green-500"></div>
           ))}
         </div>
-        <div className="text-2xl font-bold">=</div>
+        <div className="text-2xl ">=</div>
         <div className="w-8 h-8 rounded-full border-2 border-dashed border-gray-400"></div>
       </div>
     );
@@ -334,7 +334,7 @@ function MathFunGame() {
               />
             ))}
           </div>
-          {error && <div className="text-red-600 font-bold">{error}</div>}
+          {error && <div className="text-red-600 ">{error}</div>}
           <Button
             text="START"
             onClick={() => {
@@ -359,7 +359,7 @@ function MathFunGame() {
       )}
       {currentProblem && (
         <div className="flex flex-col items-center space-y-10">
-          <h1 className="font-bold text-lg">{currentProblem.question}</h1>
+          <h1 className=" text-lg">{currentProblem.question}</h1>
           <div className="flex space-x-8">
             {options.map((option) => (
               <Button
@@ -378,11 +378,11 @@ function MathFunGame() {
             ))}
           </div>
           {selectedAnswer === currentProblem.answer ? (
-            <div className="text-green-600 font-bold">Correct! 🎉</div>
+            <div className="text-green-600 ">Correct! 🎉</div>
           ) : (
             selectedAnswer !== null && (
               <div className="space-y-4">
-                <div className="text-red-600 font-bold">Try again</div>
+                <div className="text-red-600 ">Try again</div>
                 {renderVisualProblem()}
               </div>
             )
