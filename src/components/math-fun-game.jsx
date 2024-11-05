@@ -230,7 +230,7 @@ function MathFunGame() {
       <div className="absolute top-0 right-0 flex space-x-8">
         {currentProblem && (
           <Button
-            icon="faHome"
+            icon="far fa-home"
             onClick={() => {
               setSelectedOperations([]);
               setSelectedFactFamily([]);
@@ -252,8 +252,6 @@ function MathFunGame() {
             alt="Game logo"
             className="h-[200px] mb-8"
           />
- 
-                <FontAwesomeIcon icon={SolidIcons.faHome} /> 
           <div className="flex flex-wrap justify-center space-x-8 mb-8">
             {["Addition", "Subtraction", "Multiplication", "Division"].map(
               (operation) => (
@@ -262,7 +260,7 @@ function MathFunGame() {
                   text={operation}
                   icon={
                     selectedOperations.includes(operation)
-                      ? "fa-check-circle"
+                      ? "far fa-check-circle"
                       : ""
                   }
                   onClick={() =>
@@ -288,7 +286,7 @@ function MathFunGame() {
                 text={num + 1}
                 icon={
                   selectedFactFamily.includes(num + 1)
-                    ? "fa-check-circle"
+                    ? "far fa-check-circle"
                     : ""
                 }
                 onClick={() =>
@@ -323,7 +321,7 @@ function MathFunGame() {
                 text={theme.name}
                 icon={
                   selectedThemes.includes(theme.name)
-                    ? "fa-check-circle"
+                    ? "far fa-check-circle"
                     : theme.icon
                 }
                 onClick={() => toggleTheme(theme.name)}
