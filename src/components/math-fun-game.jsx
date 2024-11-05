@@ -262,7 +262,7 @@ function MathFunGame() {
                   text={operation}
                   icon={
                     selectedOperations.includes(operation)
-                      ? "far fa-check-circle"
+                      ? "fa-check-circle"
                       : ""
                   }
                   onClick={() =>

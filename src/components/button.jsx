@@ -18,6 +18,7 @@ function Button({ text, icon, onClick, className }) {
         {text}
         {/*icon && <FontAwesomeIcon icon={SolidIcons.faHome} className="mr-2" /> */}
         {icon && <FontAwesomeIcon icon={SolidIcons[icon]} className="mr-2" /> }
+        {icon && <FontAwesomeIcon icon={RegularIcons[icon]} className="mr-2" /> }
       </div>
     </button>
   );
