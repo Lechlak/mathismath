@@ -1,8 +1,6 @@
 "use client";
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import * as SolidIcons from '@fortawesome/free-solid-svg-icons';
-import * as RegularIcons from '@fortawesome/free-regular-svg-icons'; // Import from free-regular-svg-icons
+
 
 function Button({ text, icon, onClick, className }) {
   return (
@@ -14,7 +12,7 @@ function Button({ text, icon, onClick, className }) {
       }
     >
       <div className="flex items-center justify-center">
-        {icon && <FontAwesomeIcon icon={icon} className={`${text ? "mr-2" : ""}`} />} {/* Use FontAwesomeIcon here */}
+        {icon && <i className={`fas ${icon} ${text ? "mr-2" : ""}`}></i>}
         {text}
       </div>
     </button>
@@ -25,7 +23,8 @@ function ButtonStory() {
   return (
     <div className="flex space-x-4 p-4">
       <Button text="Sign in" />
-      <Button icon={faShoppingCart} /> {/* Pass the imported icon here */}
+      <Button icon="fa-shopping-cart" /><i className="fa fa-check-circle"></i>
+
     </div>
   );
 }
