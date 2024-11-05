@@ -1,10 +1,6 @@
 "use client";
 import React from "react";
 import Button from "../components/button";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import * as SolidIcons from '@fortawesome/free-solid-svg-icons';
-import * as RegularIcons from '@fortawesome/free-regular-svg-icons'; // Import from free-regular-svg-icons
-
 
 function MathFunGame() {
   const [selectedOperations, setSelectedOperations] = React.useState([]);
@@ -231,7 +227,6 @@ function MathFunGame() {
       <div className="absolute top-0 right-0 flex space-x-8">
         {currentProblem && (
           <Button
-            text="home"
             icon="far fa-home"
             onClick={() => {
               setSelectedOperations([]);

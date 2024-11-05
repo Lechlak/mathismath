@@ -21,4 +21,13 @@ function Button({ text, icon, onClick, className }) {
   );
 }
 
+function ButtonStory() {
+  return (
+    <div className="flex space-x-4 p-4">
+      <Button text="Sign in" />
+      <Button icon={faShoppingCart} /> {/* Pass the imported icon here */}
+    </div>
+  );
+}
+
 export default Button;
