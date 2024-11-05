@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesomeIcon
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'; // Import the specific icon you need
+import { faCheckCircle, faHome, faPaw, faGamepad, faCar } from '@fortawesome/free-solid-svg-icons'; // Import the specific icons you need
 
 function Button({ text, icon, onClick, className }) {
   return (
@@ -13,7 +13,7 @@ function Button({ text, icon, onClick, className }) {
       }
     >
       <div className="flex items-center justify-center">
-        {icon && <FontAwesomeIcon icon={icon} className={`${text ? "mr-2" : ""}`} />} {/* Use FontAwesomeIcon here */}
+        {icon && <FontAwesomeIcon icon={faCheckCircle} />} {/* Use FontAwesomeIcon here */}
         {text}
       </div>
     </button>
