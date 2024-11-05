@@ -1,5 +1,7 @@
 "use client";
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesomeIcon
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'; // Import the specific icon you need
 
 
 function Button({ text, icon, onClick, className }) {
