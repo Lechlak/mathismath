@@ -1,6 +1,9 @@
 "use client";
 import React from "react";
 import Button from "../components/button";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesomeIcon
+import { faCheckCircle, faHome, faPaw, faGamepad, faCar } from '@fortawesome/free-solid-svg-icons'; // Import the specific icons you need
+
 
 function MathFunGame() {
   const [selectedOperations, setSelectedOperations] = React.useState([]);
