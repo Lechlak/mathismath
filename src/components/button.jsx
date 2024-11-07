@@ -7,7 +7,7 @@ import * as RegularIcons from '@fortawesome/free-regular-svg-icons';
 function Button({ text, icon, imageSrc, onClick, className }) {
 // Determine padding based on the value of `text`
 const paddingClass =
-text === 10 || text === 12 ? "py-3 px-4" : "py-4 px-4";
+text === 10 || text === 12 ? "py-4 px-3" : "py-4 px-4";
 
 return (
 <button
