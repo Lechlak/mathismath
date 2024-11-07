@@ -2,9 +2,9 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as SolidIcons from '@fortawesome/free-solid-svg-icons';
-import * as RegularIcons from '@fortawesome/free-regular-svg-icons'; // Import from free-regular-svg-icons
+import * as RegularIcons from '@fortawesome/free-regular-svg-icons'; 
 
-function Button({ text, icon, onClick, className }) {
+function Button({ text, icon, imageSrc, onClick, className }) {
   return (
     <button
       onClick={onClick}
@@ -14,8 +14,9 @@ function Button({ text, icon, onClick, className }) {
       }
     >
       <div className="flex items-center justify-center">
-        {icon && <FontAwesomeIcon icon={SolidIcons[icon]} className="mr-2" />}
-        {text && <span className="">{text}</span>} 
+        {icon && <FontAwesomeIcon icon={SolidIcons[icon]} className="mr-2" />} 
+        {text && <span className="">{text}</span>}
+        {imageSrc && <img src={imageSrc} alt={text || "Button Image"} className="h-5 w-5" />} {/* Add image support */}
       </div>
     </button>
   );

@@ -254,26 +254,41 @@ function MathFunGame() {
             className="h-[200px] mb-8"
           />
           <div className="flex flex-wrap justify-center space-x-8 mb-8">
-  {["+", "-", "x", "/"].map((operation) => (
-    <Button
-      key={operation}
-      imageSrc={`/${operation}.png`} // Assuming images are in the public folder
-      onClick={() =>
-        setSelectedOperations((prev) =>
-          prev.includes(operation)
-            ? prev.filter((op) => op !== operation)
-            : [...prev, operation]
-        )
-      }
-      className={`rounded-full border border-gray-300 py-1 px-3 ${
-        selectedOperations.includes(operation)
-          ? "bg-[#e0f2ff] border-blue-500 border-2"
-          : ""
-      }`}
-    />
-  ))}
-</div>
+  {["+", "-", "x", "/"].map((operation) => {
+    // Define the image source for each operation
+    const operationImageSrc = {
+      "+": "/add.png",
+      "-": "/subtract.png",
+      "x": "/multiply.png",
+      "/": "/divide.png",
+    }[operation];
 
+    return (
+      <Button
+        key={operation}
+        imageSrc={`/${operation}.png`} // Assuming images are in the public folder
+        icon={
+          selectedOperations.includes(operation)
+            ? "faCheckCircle"
+            : ""
+        }
+        onClick={() =>
+          setSelectedOperations((prev) =>
+            prev.includes(operation)
+              ? prev.filter((op) => op !== operation)
+              : [...prev, operation]
+          )
+        }
+        className={`rounded-full border border-gray-300 py-1 px-3 ${
+          selectedOperations.includes(operation)
+            ? "bg-[#e0f2ff] border-blue-500 border-2"
+            : ""
+        }`}
+      >
+      </Button>
+    );
+  })}
+</div>
 
           <div className="flex flex-wrap justify-center space-x-4 mb-8">
   {[...Array.from({ length: 12 }).keys()].map((num) => (
