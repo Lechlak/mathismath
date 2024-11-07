@@ -488,7 +488,7 @@ function MathFunGame() {
 
 function MathFunGameStory() {
   return (
-    <div className="mt-10">
+    <div className="pt-10">
       <MathFunGame />
     </div>
   );
