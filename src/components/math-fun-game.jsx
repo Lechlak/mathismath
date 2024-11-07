@@ -303,7 +303,7 @@ function MathFunGame() {
             <h2 className="text-lg font-bold text-center mb-4">
               Select Fact Family
             </h2>
-            <div className="flex flex-wrap justify-center space-x-4 mb-8">
+            <div className="flex flex-wrap justify-center space-x-6 66 mb-8">
               {[...Array.from({ length: 12 }).keys()].map((num) => (
                 <Button
                   key={num + 1}
@@ -340,7 +340,7 @@ function MathFunGame() {
             <h2 className="text-lg font-bold text-center mb-4">
               Select Themes
             </h2>
-            <div className="flex flex-wrap justify-center space-x-8 mb-8 px-2">
+            <div className="flex flex-wrap justify-center space-x-4 4 mb-8 px-2">
               {[
                 { name: "Animals", icon: "faPaw" },
                 { name: "Gaming", icon: "faGamepad" },
@@ -371,7 +371,7 @@ function MathFunGame() {
             {/* ... your game content (currentProblem, options, etc.) ... */}
             {currentProblem && (
             <div className="flex flex-col items-center space-y-10">
-              <h1 className=" text-lg">{currentProblem.question}</h1>
+              <h1 className="text-2xl">{currentProblem.question}</h1>
               <div className="flex space-x-8">
                 {options.map((option) => (
                   <Button
