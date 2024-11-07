@@ -306,30 +306,44 @@ function MathFunGame() {
               <div className="grid grid-cols-4 gap-4 mb-8"> {/* Apply grid layout */}
                 {[...Array.from({ length: 12 }).keys()].map((num) => (
                   <Button
-                    key={num + 1}
-                    text={num + 1}
-                    icon={selectedFactFamily.includes(num + 1) ? "faCheckCircle" : ""}
-                    onClick={() =>
-                      setSelectedFactFamily((prev) =>
-                        prev.includes(num + 1)
-                          ? prev.filter((n) => n !== num + 1)
-                          : [...prev, num + 1]
-                      )
-                    }
-                    className={`rounded-full border border-gray-300 py-1 ${
-                      num + 1 === 10 || num + 1 === 12 ? "px-3" : "px-4"
-                    } ${
+                  key={num + 1}
+                  text={num + 1}
+                  icon={selectedFactFamily.includes(num + 1) ? "faCheckCircle" : "faCircle"} 
+                  // ^ Change here: Always show an icon, but make it invisible when not selected
+                  onClick={() => 
+                    setSelectedFactFamily((prev) =>
+                      prev.includes(num + 1)
+                        ? prev.filter((n) => n !== num + 1)
+                        : [...prev, num + 1]
+                    )
+                  }
+                  className={`rounded-full border border-gray-300 py-1 
+                    ${num + 1 === 10 || num + 1 === 12 ? "px-3" : "px-4"} 
+                    ${selectedFactFamily.includes(num + 1)
+                      ? "bg-[#fffe8b] border-blue-500 border-2 text-blue-500" 
+                      : ""} 
+                    ${masteredFamilies.includes(
+                      `${selectedOperations.join(",")}-${num + 1}`
+                    )
+                      ? "bg-green-200"
+                      : ""}
+                  `}
+                >
+                  <FontAwesomeIcon
+                    icon={
                       selectedFactFamily.includes(num + 1)
-                        ? "bg-[#fffe8b] border-blue-500 border-2"
-                        : ""
-                    } ${
-                      masteredFamilies.includes(
-                        `${selectedOperations.join(",")}-${num + 1}`
-                      )
-                        ? "bg-green-200"
-                        : ""
-                    }`}
+                        ? SolidIcons.faCheckCircle // Use solid icon when selected
+                        : RegularIcons.faCircle // Use regular (empty) icon when not selected
+                    }
+                    className={`${
+                      selectedFactFamily.includes(num + 1) ? "text-blue-500" : "invisible"
+                    }`} // Hide the icon visually when not selected
                   />
+                  {/* Text content of the button */}
+                  {num + 1} 
+                </Button>
+                
+                
                 ))}
               </div>
             </div>
