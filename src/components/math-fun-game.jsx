@@ -100,7 +100,7 @@ function MathFunGame() {
             {[...Array(firstNumber)].map((_, i) => (
               <div
                 key={i}
-                className="w-4 h-4 m-1 rounded-full bg-green-800"
+                className="w-4 h-4 m-1 rounded-full bg-blue-500"
               ></div>
             ))}
           </div>
@@ -281,7 +281,7 @@ function MathFunGame() {
         }
         className={`rounded-full border border-gray-300 py-3 px-3 ${
           selectedOperations.includes(operation)
-            ? "bg-[#e0f2ff] border-blue-500 border-2"
+            ? "bg-[#00FF00] border-blue-500 border-2"
             : ""
         }`}
       >
@@ -307,7 +307,7 @@ function MathFunGame() {
         num + 1 === 10 || num + 1 === 12 ? "px-3" : "px-4"
       } ${
         selectedFactFamily.includes(num + 1)
-          ? "bg-[#e0f2ff] border-blue-500 border-2"
+          ? "bg-[#00FF00] border-blue-500 border-2"
           : ""
       } ${
         masteredFamilies.includes(
@@ -337,7 +337,7 @@ function MathFunGame() {
                 onClick={() => toggleTheme(theme.name)}
                 className={`rounded-full border border-gray-300 flex items-center ${
                   selectedThemes.includes(theme.name)
-                    ? "bg-[#e0f2ff] border-blue-500 border-2"
+                    ? "bg-[#00FF00] border-blue-500 border-2"
                     : ""
                 }`}
               />
