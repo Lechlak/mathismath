@@ -310,7 +310,7 @@ function MathFunGame() {
   ))}
 </div>
 
-          <div className="flex flex-wrap justify-center space-x-8 mb-8">
+          <div className="flex flex-wrap justify-center space-x-8 mb-8 px-2">
             {[
               { name: "Animals", icon: "faPaw" },
               { name: "Gaming", icon: "faGamepad" },
@@ -352,7 +352,7 @@ function MathFunGame() {
                 setError("Please select an operation and a fact family.");
               }
             }}
-            className="rounded-full border border-gray-300 py-1 px-2"
+            className="rounded-full border border-gray-300 py-1 px-3"
           />
         </div>
       )}
