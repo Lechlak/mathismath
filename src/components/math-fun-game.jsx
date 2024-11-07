@@ -261,7 +261,7 @@ function MathFunGame() {
                   text={operation}
                   icon={
                     selectedOperations.includes(operation)
-                      ? "faCheckCircle"
+                      ? "faCheckCircle activebtn"
                       : ""
                   }
                   onClick={() =>
@@ -287,7 +287,7 @@ function MathFunGame() {
                 text={num + 1}
                 icon={
                   selectedFactFamily.includes(num + 1)
-                    ? "faCheckCircle bg-[#e0f2ff]"
+                    ? "faCheckCircle activebtn"
                     : ""
                 }
                 onClick={() =>
@@ -322,7 +322,7 @@ function MathFunGame() {
                 text={theme.name}
                 icon={
                   selectedThemes.includes(theme.name)
-                    ? "faCheckCircle"
+                    ? "faCheckCircle activebtn"
                     : theme.icon
                 }
                 onClick={() => toggleTheme(theme.name)}
