@@ -254,19 +254,19 @@ function MathFunGame() {
             className="h-[200px] mb-8"
           />
           <div className="flex flex-wrap justify-center space-x-8 mb-8">
-  {["+", "-", "x", "/"].map((operation) => {
-    // Define the image source for each operation
-    const operationImageSrc = {
-      "+": "/add.png",
-      "-": "/subtract.png",
-      "x": "/multiply.png",
-      "/": "/divide.png",
-    }[operation];
+          {["+", "-", "x", "/"].map((operation) => {
+  // Define the image source for each operation
+  const operationImageSrc = {
+    "+": "/add.png",
+    "-": "/subtract.png",
+    "x": "/multiply.png",
+    "/": "/divide.png",
+  }[operation]; 
 
-    return (
-      <Button
-        key={operation}
-        imageSrc={`/${operation}.png`} // Assuming images are in the public folder
+  return (
+    <Button
+      key={operation}
+      imageSrc={operationImageSrc} // Use the mapped image source here
         icon={
           selectedOperations.includes(operation)
             ? "faCheckCircle"
