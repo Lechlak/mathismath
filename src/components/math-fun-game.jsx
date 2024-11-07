@@ -450,13 +450,13 @@ function MathFunGame() {
           />
     
       </div>
-      <div className="absolute top-0 left-0 flex space-x-8 px-2 py-1">
-      <img
+      <div className="absolute top-0 left-0 flex space-x-8 px-2 py-1 mt-0">
+        <img
             src="/math-is-math.png"
             alt="Game logo"
-            className="h-[100px] mb-8"
+            className="h-[75px] mb-8"
           />
-          </div>
+       </div>
 
         <div className="flex flex-col justify-center items-center space-y-10">
           
