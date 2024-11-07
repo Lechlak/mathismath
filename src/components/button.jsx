@@ -8,10 +8,19 @@ function Button({ text, icon, imageSrc, onClick, className }) {
   return (
     <button
       onClick={onClick}
-      className={
-        "text-gray-800 py-4 px-4 rounded-[2px] hover:bg-gray-200 transition-colors duration-200 " +
-        className
-      }
+      className={`rounded-full border border-gray-300 py-1 ${
+        num + 1 === 10 || num + 1 === 12 ? "px-3" : "px-4"
+      } ${
+        selectedFactFamily.includes(num + 1)
+          ? "bg-[#fffe8b] border-blue-500 border-2"
+          : ""
+      } ${
+        masteredFamilies.includes(
+          `${selectedOperations.join(",")}-${num + 1}`
+        )
+          ? "bg-green-200"
+          : ""
+      }`}
     >
       <div className="flex items-center justify-center">
         {icon && <FontAwesomeIcon icon={SolidIcons[icon]} className="mr-2" />} 

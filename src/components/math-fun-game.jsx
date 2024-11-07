@@ -389,6 +389,16 @@ function MathFunGame() {
                   />
                 ))}
               </div>
+              {selectedAnswer === currentProblem.answer ? (
+                <div className="text-green-600 ">Correct!</div>
+              ) : (
+                selectedAnswer !== null && (
+                  <div className="space-y-4">
+                    <div className="text-red-600 ">Try again. You got this!</div>
+                    {renderVisualProblem()}
+                  </div>
+                )
+              )}
               {currentImage && (
                 <div className="relative w-full h-full">
                   <img
@@ -401,16 +411,6 @@ function MathFunGame() {
                     style={{ width: `${(correctAnswers % 5) * 20}%` }}
                   ></div>
                 </div>
-              )}
-              {selectedAnswer === currentProblem.answer ? (
-                <div className="text-green-600 ">Correct!</div>
-              ) : (
-                selectedAnswer !== null && (
-                  <div className="space-y-4">
-                    <div className="text-red-600 ">Try again. You got this!</div>
-                    {renderVisualProblem()}
-                  </div>
-                )
               )}
               {showCelebration && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
