@@ -75,13 +75,18 @@ function MathFunGame() {
     const operation = currentProblem.question.match(/[\+\-\x\÷]/)[0];
 
     if (operation === "x") {
+      const totalDots = firstNumber * secondNumber;
+      const rows = 3; // Fixed number of rows
+      const cols = 4; // Fixed number of columns
+      const dotsToShow = Math.min(totalDots, rows * cols); // Limit dots to fit the grid
+    
       return (
-        <div className="w-1/2 mx-auto">
+        <div className="w-fit mx-auto"> 
           <div
             className="grid"
-            style={{ gridTemplateColumns: `repeat(${firstNumber}, 1fr)` }}
+            style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }} 
           >
-            {[...Array(firstNumber * secondNumber)].map((_, i) => (
+            {[...Array(dotsToShow)].map((_, i) => ( 
               <div
                 key={i}
                 className="w-4 h-4 m-1 rounded-full bg-blue-500"
@@ -91,6 +96,7 @@ function MathFunGame() {
         </div>
       );
     }
+    
 
     if (operation === "÷") {
       return (
