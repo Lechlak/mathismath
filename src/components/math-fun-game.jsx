@@ -281,36 +281,35 @@ function MathFunGame() {
             )}
           </div>
           <div className="flex flex-wrap justify-center space-x-4 mb-8">
-            {[...Array.from({ length: 12 }).keys()].map((num) => (
-              <Button
-                key={num + 1}
-                text={num + 1}
-                icon={
-                  selectedFactFamily.includes(num + 1)
-                    ? "faCheckCircle"
-                    : ""
-                }
-                onClick={() =>
-                  setSelectedFactFamily((prev) =>
-                    prev.includes(num + 1)
-                      ? prev.filter((n) => n !== num + 1)
-                      : [...prev, num + 1]
-                  )
-                }
-                className={`rounded-full border border-gray-300 py-1 px-2 ${
-                  selectedFactFamily.includes(num + 1)
-                    ? "bg-[#e0f2ff] border-blue-500 border-2"
-                    : ""
-                } ${
-                  masteredFamilies.includes(
-                    `${selectedOperations.join(",")}-${num + 1}`
-                  )
-                    ? "bg-green-200"
-                    : ""
-                }`}
-              />
-            ))}
-          </div>
+  {[...Array.from({ length: 12 }).keys()].map((num) => (
+    <Button
+      key={num + 1}
+      text={num + 1}
+      icon={selectedFactFamily.includes(num + 1) ? "faCheckCircle" : ""}
+      onClick={() =>
+        setSelectedFactFamily((prev) =>
+          prev.includes(num + 1)
+            ? prev.filter((n) => n !== num + 1)
+            : [...prev, num + 1]
+        )
+      }
+      className={`rounded-full border border-gray-300 py-1 ${
+        num + 1 === 10 || num + 1 === 12 ? "px-4" : "px-2"
+      } ${
+        selectedFactFamily.includes(num + 1)
+          ? "bg-[#e0f2ff] border-blue-500 border-2"
+          : ""
+      } ${
+        masteredFamilies.includes(
+          `${selectedOperations.join(",")}-${num + 1}`
+        )
+          ? "bg-green-200"
+          : ""
+      }`}
+    />
+  ))}
+</div>
+
           <div className="flex flex-wrap justify-center space-x-8 mb-8">
             {[
               { name: "Animals", icon: "faPaw" },
