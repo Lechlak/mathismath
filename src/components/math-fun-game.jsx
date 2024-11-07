@@ -75,18 +75,13 @@ function MathFunGame() {
     const operation = currentProblem.question.match(/[\+\-\x\÷]/)[0];
 
     if (operation === "x") {
-      const totalDots = firstNumber * secondNumber;
-      const rows = 3; // Fixed number of rows
-      const cols = 4; // Fixed number of columns
-      const dotsToShow = Math.min(totalDots, rows * cols); // Limit dots to fit the grid
-    
       return (
-        <div className="w-fit mx-auto"> 
+        <div className="w-1/2 mx-auto">
           <div
             className="grid"
-            style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }} 
+            style={{ gridTemplateColumns: `repeat(${firstNumber}, 1fr)` }}
           >
-            {[...Array(dotsToShow)].map((_, i) => ( 
+            {[...Array(firstNumber * secondNumber)].map((_, i) => (
               <div
                 key={i}
                 className="w-4 h-4 m-1 rounded-full bg-blue-500"
@@ -96,7 +91,6 @@ function MathFunGame() {
         </div>
       );
     }
-    
 
     if (operation === "÷") {
       return (
@@ -303,43 +297,43 @@ function MathFunGame() {
             </div>
           </div>
         );
-      case 2:
-        return (
-          <div>
-            <h2 className="text-lg font-bold text-center mb-4">
-              Select Fact Family
-            </h2>
-            <div className="flex flex-wrap justify-center space-x-8 mb-8">
-              {[...Array.from({ length: 12 }).keys()].map((num) => (
-                <Button
-                  key={num + 1}
-                  text={num + 1}
-                  icon={selectedFactFamily.includes(num + 1) ? "faCheckCircle" : ""}
-                  onClick={() =>
-                    setSelectedFactFamily((prev) =>
-                      prev.includes(num + 1)
-                        ? prev.filter((n) => n !== num + 1)
-                        : [...prev, num + 1]
-                    )
-                  }
-                  className={`rounded-full border border-gray-300 py-1 ${
-                    num + 1 === 10 || num + 1 === 12 ? "px-3" : "px-4"
-                  } ${
-                    selectedFactFamily.includes(num + 1)
-                      ? "bg-[#fffe8b] border-blue-500 border-2"
-                      : ""
-                  } ${
-                    masteredFamilies.includes(
-                      `${selectedOperations.join(",")}-${num + 1}`
-                    )
-                      ? "bg-green-200"
-                      : ""
-                  }`}
-                />
-              ))}
+        case 2:
+          return (
+            <div>
+              <h2 className="text-lg font-bold text-center mb-4">
+                Select Fact Family
+              </h2>
+              <div className="grid grid-cols-4 gap-4 mb-8"> {/* Apply grid layout */}
+                {[...Array.from({ length: 12 }).keys()].map((num) => (
+                  <Button
+                    key={num + 1}
+                    text={num + 1}
+                    icon={selectedFactFamily.includes(num + 1) ? "faCheckCircle" : ""}
+                    onClick={() =>
+                      setSelectedFactFamily((prev) =>
+                        prev.includes(num + 1)
+                          ? prev.filter((n) => n !== num + 1)
+                          : [...prev, num + 1]
+                      )
+                    }
+                    className={`rounded-full border border-gray-300 py-1 ${
+                      num + 1 === 10 || num + 1 === 12 ? "px-3" : "px-4"
+                    } ${
+                      selectedFactFamily.includes(num + 1)
+                        ? "bg-[#fffe8b] border-blue-500 border-2"
+                        : ""
+                    } ${
+                      masteredFamilies.includes(
+                        `${selectedOperations.join(",")}-${num + 1}`
+                      )
+                        ? "bg-green-200"
+                        : ""
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-        );
+          );        
       case 3:
         return (
           <div>
