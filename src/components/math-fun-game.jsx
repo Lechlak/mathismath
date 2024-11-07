@@ -281,7 +281,7 @@ function MathFunGame() {
         }
         className={`rounded-full border border-gray-300 py-3 px-3 ${
           selectedOperations.includes(operation)
-            ? "bg-[#00FF00] border-blue-500 border-2"
+            ? "bg-[#006700] border-blue-500 border-2"
             : ""
         }`}
       >
@@ -307,7 +307,7 @@ function MathFunGame() {
         num + 1 === 10 || num + 1 === 12 ? "px-3" : "px-4"
       } ${
         selectedFactFamily.includes(num + 1)
-          ? "bg-[#00FF00] border-blue-500 border-2"
+          ? "bg-[#006700] border-blue-500 border-2"
           : ""
       } ${
         masteredFamilies.includes(
@@ -337,7 +337,7 @@ function MathFunGame() {
                 onClick={() => toggleTheme(theme.name)}
                 className={`rounded-full border border-gray-300 flex items-center ${
                   selectedThemes.includes(theme.name)
-                    ? "bg-[#00FF00] border-blue-500 border-2"
+                    ? "bg-[#006700] border-blue-500 border-2"
                     : ""
                 }`}
               />
