@@ -431,7 +431,7 @@ function MathFunGame() {
   return (
     <div className="p-4 relative bg-white text-black space-y-10">
       <div className="absolute top-0 right-0 flex space-x-8 px-2 py-1">
-        {currentProblem && (
+        
           <Button
             text="Home"
             icon="faHome"
@@ -448,14 +448,14 @@ function MathFunGame() {
             }}
             className="rounded-full border border-gray-300"
           />
-        )}
+    
       </div>
       
-        <div className="flex flex-col justify-center items-center space-y-10">
+        <div className="absolute top-0 left-0 space-y-10">
           <img
             src="/math-is-math.png"
             alt="Game logo"
-            className="h-[50px] mb-8"
+            className="h-[100px] mb-8"
           />
 
           {renderStepContent()} {/* Render content based on current step */}
