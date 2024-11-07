@@ -20,6 +20,7 @@ function MathFunGame() {
   const [showThemeSelector, setShowThemeSelector] = React.useState(false);
   const [error, setError] = React.useState("");
   const [imageSetIndex, setImageSetIndex] = React.useState(0);
+  const [currentStep, setCurrentStep] = React.useState(1); // 1: Operations, 2: Fact Family, 3: Themes, 4: Game
 
   const animalProgressImages = [
     "animals-meerkat.jpg",
@@ -60,6 +61,7 @@ function MathFunGame() {
   ];
 
   const renderVisualProblem = () => {
+    // ... (your existing renderVisualProblem logic)
     if (
       !currentProblem ||
       !selectedAnswer ||
@@ -128,6 +130,7 @@ function MathFunGame() {
   };
 
   React.useEffect(() => {
+    // ... (your existing useEffect for setting currentImage)
     if (currentProblem) {
       const progressImages = selectedThemes.includes("Gaming")
         ? videoGamesProgressImages
@@ -138,9 +141,9 @@ function MathFunGame() {
       setCurrentImage(progressImages[imageSetIndex % progressImages.length]);
     }
   }, [currentProblem, selectedThemes, imageSetIndex]);
-  
 
   React.useEffect(() => {
+    // ... (your existing useEffect for showCelebration)
     if (correctAnswers > 0 && correctAnswers % 5 === 0) {
       setShowCelebration(true);
       setTimeout(() => {
@@ -151,6 +154,7 @@ function MathFunGame() {
   }, [correctAnswers]);
 
   function generateProblem(operations, factFamily) {
+    // ... (your existing generateProblem logic)
     const operation = operations[Math.floor(Math.random() * operations.length)];
     const num = factFamily[Math.floor(Math.random() * factFamily.length)];
     const result = Math.floor(Math.random() * 12) + 1;
@@ -169,6 +173,7 @@ function MathFunGame() {
   }
 
   function generateOptions(problem) {
+    // ... (your existing generateOptions logic)
     const options = [problem.answer];
     while (options.length < 3) {
       const fakeAnswer =
@@ -180,6 +185,7 @@ function MathFunGame() {
   }
 
   function handleAnswer(option) {
+    // ... (your existing handleAnswer logic)
     if (option === currentProblem.answer) {
       setCorrectAnswers(correctAnswers + 1);
       setSelectedAnswer(option);
@@ -205,6 +211,7 @@ function MathFunGame() {
   }
 
   function toggleTheme(theme) {
+    // ... (your existing toggleTheme logic)
     setSelectedThemes((prevThemes) =>
       prevThemes.includes(theme)
         ? prevThemes.filter((t) => t !== theme)
@@ -213,17 +220,213 @@ function MathFunGame() {
   }
 
   const celebrationGif = selectedThemes.includes("Gaming")
-  ? videoGamesCelebrationGifs[
-      Math.floor(Math.random() * videoGamesCelebrationGifs.length)
-    ]
-  : selectedThemes.includes("Animals")
-  ? animalCelebrationGifs[
-      Math.floor(Math.random() * animalCelebrationGifs.length)
-    ]
-  : vehicleCelebrationGifs[
-      Math.floor(Math.random() * vehicleCelebrationGifs.length)
-    ];
+    ? videoGamesCelebrationGifs[
+        Math.floor(Math.random() * videoGamesCelebrationGifs.length)
+      ]
+    : selectedThemes.includes("Animals")
+    ? animalCelebrationGifs[
+        Math.floor(Math.random() * animalCelebrationGifs.length)
+      ]
+    : vehicleCelebrationGifs[
+        Math.floor(Math.random() * vehicleCelebrationGifs.length)
+      ];
 
+  const handleNextStep = () => {
+    if (currentStep < 3) {
+      setCurrentStep(currentStep + 1);
+    } else if (currentStep === 3) {
+      // Handle starting the game logic here (similar to your previous START button logic)
+      if (selectedOperations.length > 0 && selectedFactFamily.length > 0) {
+        const newProblem = generateProblem(
+          selectedOperations,
+          selectedFactFamily
+        );
+        setCurrentProblem(newProblem);
+        setOptions(generateOptions(newProblem));
+        setError("");
+        setCurrentStep(4); // Move to the game screen
+      } else {
+        setError("Please select an operation and a fact family.");
+      }
+    }
+  };
+
+  const renderStepContent = () => {
+    switch (currentStep) {
+      case 1:
+        return (
+          <div>
+            <h2 className="text-lg font-bold text-center mb-4">
+              Select Operations
+            </h2>
+            <div className="flex flex-wrap justify-center space-x-8 mb-8">
+              {["+", "-", "x", "/"].map((operation) => {
+                // Define the image source for each operation
+                const operationImageSrc = {
+                  "+": "/add.png",
+                  "-": "/subtract.png",
+                  "x": "/multiply.png",
+                  "/": "/divide.png",
+                }[operation];
+
+                return (
+                  <Button
+                    key={operation}
+                    imageSrc={operationImageSrc} // Use the mapped image source here
+                    icon={
+                      selectedOperations.includes(operation)
+                        ? ""
+                        : ""
+                    }
+                    onClick={() =>
+                      setSelectedOperations((prev) =>
+                        prev.includes(operation)
+                          ? prev.filter((op) => op !== operation)
+                          : [...prev, operation]
+                      )
+                    }
+                    className={`rounded-full border border-gray-300 py-3 px-3 ${
+                      selectedOperations.includes(operation)
+                        ? "bg-[#fffe8b] border-blue-500 border-2"
+                        : ""
+                    }`}
+                  >
+                  </Button>
+                );
+              })}
+            </div>
+          </div>
+        );
+      case 2:
+        return (
+          <div>
+            <h2 className="text-lg font-bold text-center mb-4">
+              Select Fact Family
+            </h2>
+            <div className="flex flex-wrap justify-center space-x-4 mb-8">
+              {[...Array.from({ length: 12 }).keys()].map((num) => (
+                <Button
+                  key={num + 1}
+                  text={num + 1}
+                  icon={selectedFactFamily.includes(num + 1) ? "faCheckCircle" : ""}
+                  onClick={() =>
+                    setSelectedFactFamily((prev) =>
+                      prev.includes(num + 1)
+                        ? prev.filter((n) => n !== num + 1)
+                        : [...prev, num + 1]
+                    )
+                  }
+                  className={`rounded-full border border-gray-300 py-1 ${
+                    num + 1 === 10 || num + 1 === 12 ? "px-3" : "px-4"
+                  } ${
+                    selectedFactFamily.includes(num + 1)
+                      ? "bg-[#fffe8b] border-blue-500 border-2"
+                      : ""
+                  } ${
+                    masteredFamilies.includes(
+                      `${selectedOperations.join(",")}-${num + 1}`
+                    )
+                      ? "bg-green-200"
+                      : ""
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        );
+      case 3:
+        return (
+          <div>
+            <h2 className="text-lg font-bold text-center mb-4">
+              Select Themes
+            </h2>
+            <div className="flex flex-wrap justify-center space-x-8 mb-8 px-2">
+              {[
+                { name: "Animals", icon: "faPaw" },
+                { name: "Gaming", icon: "faGamepad" },
+                { name: "Vehicles", icon: "faCar" },
+              ].map((theme) => (
+                <Button
+                  key={theme.name}
+                  text={theme.name}
+                  icon={
+                    selectedThemes.includes(theme.name)
+                      ? "faCheckCircle"
+                      : theme.icon
+                  }
+                  onClick={() => toggleTheme(theme.name)}
+                  className={`rounded-full border border-gray-300 flex items-center ${
+                    selectedThemes.includes(theme.name)
+                      ? "bg-[#fffe8b] border-blue-500 border-2"
+                      : ""
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        );
+      case 4:
+        return (
+          <div>
+            {/* ... your game content (currentProblem, options, etc.) ... */}
+            <div className="flex flex-col items-center space-y-10">
+              <h1 className=" text-lg">{currentProblem.question}</h1>
+              <div className="flex space-x-8">
+                {options.map((option) => (
+                  <Button
+                    key={option}
+                    text={option}
+                    onClick={() => handleAnswer(option)}
+                    className={`rounded-full border border-gray-300 ${
+                      selectedAnswer === option
+                        ? option === currentProblem.answer
+                          ? "bg-green-500"
+                          : "bg-gray-300"
+                        : ""
+                    }`}
+                    disabled={selectedAnswer === option}
+                  />
+                ))}
+              </div>
+              {selectedAnswer === currentProblem.answer ? (
+                <div className="text-green-600 ">Correct!</div>
+              ) : (
+                selectedAnswer !== null && (
+                  <div className="space-y-4">
+                    <div className="text-red-600 ">Try again. You got this!</div>
+                    {renderVisualProblem()}
+                  </div>
+                )
+              )}
+              {currentImage && (
+                <div className="relative w-full h-full">
+                  <img
+                    src={currentImage}
+                    alt="Progress image showing theme"
+                    className="w-full h-full object-cover"
+                  />
+                  <div
+                    className="absolute top-0 left-0 h-full bg-blue-600 opacity-50"
+                    style={{ width: `${(correctAnswers % 5) * 20}%` }}
+                  ></div>
+                </div>
+              )}
+              {showCelebration && (
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                  <img
+                    src={celebrationGif}
+                    alt="Celebration gif showing happy animation"
+                    className="max-w-full max-h-full"
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="p-4 relative bg-white text-black space-y-10">
@@ -241,6 +444,7 @@ function MathFunGame() {
               setSelectedAnswer(null);
               setCurrentImage(null);
               setImageSetIndex(0);
+              setCurrentStep(1); // Reset to the first step
             }}
             className="rounded-full border border-gray-300"
           />
@@ -253,171 +457,25 @@ function MathFunGame() {
             alt="Game logo"
             className="h-[200px] mb-8"
           />
-          <div className="flex flex-wrap justify-center space-x-8 mb-8">
-          {["+", "-", "x", "/"].map((operation) => {
-  // Define the image source for each operation
-  const operationImageSrc = {
-    "+": "/add.png",
-    "-": "/subtract.png",
-    "x": "/multiply.png",
-    "/": "/divide.png",
-  }[operation]; 
 
-  return (
-    <Button
-      key={operation}
-      imageSrc={operationImageSrc} // Use the mapped image source here
-        icon={
-          selectedOperations.includes(operation)
-            ? ""
-            : ""
-        }
-        onClick={() =>
-          setSelectedOperations((prev) =>
-            prev.includes(operation)
-              ? prev.filter((op) => op !== operation)
-              : [...prev, operation]
-          )
-        }
-        className={`rounded-full border border-gray-300 py-3 px-3 ${
-          selectedOperations.includes(operation)
-            ? "bg-[#fffe8b] border-blue-500 border-2"
-            : ""
-        }`}
-      >
-      </Button>
-    );
-  })}
-</div>
+          {renderStepContent()} {/* Render content based on current step */}
 
-          <div className="flex flex-wrap justify-center space-x-4 mb-8">
-  {[...Array.from({ length: 12 }).keys()].map((num) => (
-    <Button
-      key={num + 1}
-      text={num + 1}
-      icon={selectedFactFamily.includes(num + 1) ? "faCheckCircle" : ""}
-      onClick={() =>
-        setSelectedFactFamily((prev) =>
-          prev.includes(num + 1)
-            ? prev.filter((n) => n !== num + 1)
-            : [...prev, num + 1]
-        )
-      }
-      className={`rounded-full border border-gray-300 py-1 ${
-        num + 1 === 10 || num + 1 === 12 ? "px-3" : "px-4"
-      } ${
-        selectedFactFamily.includes(num + 1)
-          ? "bg-[#fffe8b] border-blue-500 border-2"
-          : ""
-      } ${
-        masteredFamilies.includes(
-          `${selectedOperations.join(",")}-${num + 1}`
-        )
-          ? "bg-green-200"
-          : ""
-      }`}
-    />
-  ))}
-</div>
-
-          <div className="flex flex-wrap justify-center space-x-8 mb-8 px-2">
-            {[
-              { name: "Animals", icon: "faPaw" },
-              { name: "Gaming", icon: "faGamepad" },
-              { name: "Vehicles", icon: "faCar" },
-            ].map((theme) => (
-              <Button
-                key={theme.name}
-                text={theme.name}
-                icon={
-                  selectedThemes.includes(theme.name)
-                    ? "faCheckCircle"
-                    : theme.icon
-                }
-                onClick={() => toggleTheme(theme.name)}
-                className={`rounded-full border border-gray-300 flex items-center ${
-                  selectedThemes.includes(theme.name)
-                    ? "bg-[#fffe8b] border-blue-500 border-2"
-                    : ""
-                }`}
-              />
-            ))}
-          </div>
           {error && <div className="text-red-600 ">{error}</div>}
-          <Button
-            text="START"
-            onClick={() => {
-              if (
-                selectedOperations.length > 0 &&
-                selectedFactFamily.length > 0
-              ) {
-                const newProblem = generateProblem(
-                  selectedOperations,
-                  selectedFactFamily
-                );
-                setCurrentProblem(newProblem);
-                setOptions(generateOptions(newProblem));
-                setError("");
-              } else {
-                setError("Please select an operation and a fact family.");
-              }
-            }}
-            className="rounded-full border border-gray-300 py-1 px-3"
-          />
-        </div>
-      )}
-      
-      {currentProblem && (
-        <div className="flex flex-col items-center space-y-10">
-          <h1 className=" text-lg">{currentProblem.question}</h1>
-          <div className="flex space-x-8">
-            {options.map((option) => (
-              <Button
-                key={option}
-                text={option}
-                onClick={() => handleAnswer(option)}
-                className={`rounded-full border border-gray-300 ${
-                  selectedAnswer === option
-                    ? option === currentProblem.answer
-                      ? "bg-green-500"
-                      : "bg-gray-300"
-                    : ""
-                }`}
-                disabled={selectedAnswer === option}
-              />
-            ))}
-          </div>
-          {selectedAnswer === currentProblem.answer ? (
-            <div className="text-green-600 ">Correct!</div>
-          ) : (
-            selectedAnswer !== null && (
-              <div className="space-y-4">
-                <div className="text-red-600 ">Try again. You got this!</div>
-                {renderVisualProblem()}
-              </div>
-            )
+
+          {currentStep < 3 && ( // Show "Next" button for steps 1 & 2
+            <Button
+              text="Next"
+              onClick={handleNextStep}
+              className="rounded-full border border-gray-300 py-1 px-3"
+            />
           )}
-          {currentImage && (
-            <div className="relative w-full h-full">
-              <img
-                src={currentImage}
-                alt="Progress image showing theme"
-                className="w-full h-full object-cover"
-              />
-              <div
-                className="absolute top-0 left-0 h-full bg-blue-600 opacity-50"
-                style={{ width: `${(correctAnswers % 5) * 20}%` }}
-              ></div>
-            </div>
-          )}
-          {showCelebration && (
-            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-              <img
-                src={celebrationGif}
-                alt="Celebration gif showing happy animation"
-                className="max-w-full max-h-full"
-              />
-            </div>
+
+          {currentStep === 3 && ( // Show "Start" button for step 3
+            <Button
+              text="START"
+              onClick={handleNextStep}
+              className="rounded-full border border-gray-300 py-1 px-3"
+            />
           )}
         </div>
       )}
