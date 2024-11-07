@@ -393,7 +393,7 @@ function MathFunGame() {
                 <div className="text-green-600 ">Correct!</div>
               ) : (
                 selectedAnswer !== null && (
-                  <div className="space-y-4">
+                  <div className="">
                     <div className="text-red-600 ">Try again. You got this!</div>
                     {renderVisualProblem()}
                   </div>
