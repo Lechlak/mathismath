@@ -279,7 +279,7 @@ function MathFunGame() {
               : [...prev, operation]
           )
         }
-        className={`rounded-full border border-gray-300 py-1 px-3 ${
+        className={`rounded-full border border-gray-300 py-3 px-3 ${
           selectedOperations.includes(operation)
             ? "bg-[#e0f2ff] border-blue-500 border-2"
             : ""
