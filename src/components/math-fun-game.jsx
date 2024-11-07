@@ -100,7 +100,7 @@ function MathFunGame() {
             {[...Array(firstNumber)].map((_, i) => (
               <div
                 key={i}
-                className="w-4 h-4 m-1 rounded-full bg-blue-500"
+                className="w-4 h-4 m-1 rounded-full bg-green-800"
               ></div>
             ))}
           </div>
