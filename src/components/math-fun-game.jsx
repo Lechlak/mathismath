@@ -429,7 +429,7 @@ function MathFunGame() {
   };
 
   return (
-    <div className="p-4 relative bg-white text-black space-y-10">
+    <div className="p-4 relative bg-white text-black">
       <div className="absolute top-0 right-0 flex space-x-8 px-2 py-1">
         
           <Button
@@ -458,7 +458,7 @@ function MathFunGame() {
           />
        </div>
 
-        <div className="flex flex-col justify-center items-center space-y-10">
+        <div className="flex flex-col justify-center items-center">
           
 
           {renderStepContent()} {/* Render content based on current step */}
@@ -488,7 +488,7 @@ function MathFunGame() {
 
 function MathFunGameStory() {
   return (
-    <div>
+    <div className="mt-10">
       <MathFunGame />
     </div>
   );
