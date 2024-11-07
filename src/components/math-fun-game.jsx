@@ -303,7 +303,7 @@ function MathFunGame() {
             <h2 className="text-lg font-bold text-center mb-4">
               Select Fact Family
             </h2>
-            <div className="flex flex-wrap justify-center space-x-6 66 mb-8">
+            <div className="flex flex-wrap justify-center space-x-8 mb-8">
               {[...Array.from({ length: 12 }).keys()].map((num) => (
                 <Button
                   key={num + 1}
