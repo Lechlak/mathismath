@@ -287,7 +287,7 @@ function MathFunGame() {
                 text={num + 1}
                 icon={
                   selectedFactFamily.includes(num + 1)
-                    ? "faCheckCircle"
+                    ? "faCheckCircle bg-[#e0f2ff]"
                     : ""
                 }
                 onClick={() =>
