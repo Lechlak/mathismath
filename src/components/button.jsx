@@ -9,7 +9,7 @@ function Button({ text, icon, onClick, className }) {
     <button
       onClick={onClick}
       className={
-        "bg-gray-100 text-gray-800 py-1 px-1 rounded-[2px] hover:bg-gray-200 transition-colors duration-200 " +
+        "text-gray-800 py-1 px-1 rounded-[2px] hover:bg-gray-200 transition-colors duration-200 " +
         className
       }
     >
