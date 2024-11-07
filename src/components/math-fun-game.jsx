@@ -149,7 +149,7 @@ function MathFunGame() {
       setTimeout(() => {
         setShowCelebration(false);
         setImageSetIndex((prev) => prev + 1);
-      }, 5000);
+      }, 3000);
     }
   }, [correctAnswers]);
 
@@ -189,20 +189,22 @@ function MathFunGame() {
     if (option === currentProblem.answer) {
       setCorrectAnswers(correctAnswers + 1);
       setSelectedAnswer(option);
-      // ... (rest of your logic)
-
-      // Clear any existing timeout
-      clearTimeout(timeoutId); // Assuming you store the timeout ID
-
-      // Set a new timeout
-      const timeoutId = setTimeout(() => {
-        if (!showCelebration) { // Only set a new problem if celebration is not active
-          const newProblem = generateProblem(selectedOperations, selectedFactFamily);
-          setCurrentProblem(newProblem);
-          setOptions(generateOptions(newProblem));
-          setSelectedAnswer(null);
-        }
-      }, 2000);
+      const key = `${selectedOperations.join(",")}-${selectedFactFamily.join(
+        ","
+      )}`;
+      setProgress((prev) => {
+        const newProgress = { ...prev, [key]: (prev[key] || 0) + 1 };
+        return newProgress;
+      });
+      setTimeout(() => {
+        const newProblem = generateProblem(
+          selectedOperations,
+          selectedFactFamily
+        );
+        setCurrentProblem(newProblem);
+        setOptions(generateOptions(newProblem));
+        setSelectedAnswer(null);
+      }, 1000);
     } else {
       setSelectedAnswer(option);
     }
