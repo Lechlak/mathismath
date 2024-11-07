@@ -354,29 +354,29 @@ function MathFunGame() {
             <h2 className="text-lg font-bold text-center mb-4">
               Select Themes
             </h2>
-            <div className="flex flex-wrap justify-center space-x-4 4 mb-8 px-2">
-              {[
-                { name: "Animals", icon: "faPaw" },
-                { name: "Gaming", icon: "faGamepad" },
-                { name: "Vehicles", icon: "faCar" },
-              ].map((theme) => (
-                <Button
-                  key={theme.name}
-                  text={theme.name}
-                  icon={
-                    selectedThemes.includes(theme.name)
-                      ? "faCheckCircle"
-                      : theme.icon
-                  }
-                  onClick={() => toggleTheme(theme.name)}
-                  className={`rounded-full border border-gray-300 flex items-center ${
-                    selectedThemes.includes(theme.name)
-                      ? "bg-[#fffe8b] border-blue-500 border-2"
-                      : ""
-                  }`}
-                />
-              ))}
-            </div>
+            <div className="grid grid-cols-2 gap-4 mb-8 px-2"> 
+  {[
+    { name: "Animals", icon: "faPaw" },
+    { name: "Gaming", icon: "faGamepad" },
+    { name: "Vehicles", icon: "faCar" },
+  ].map((theme) => (
+    <Button
+      key={theme.name}
+      text={theme.name}
+      icon={
+        selectedThemes.includes(theme.name)
+          ? "faCheckCircle"
+          : theme.icon
+      }
+      onClick={() => toggleTheme(theme.name)}
+      className={`rounded-full border border-gray-300 flex items-center ${
+        selectedThemes.includes(theme.name)
+          ? "bg-[#fffe8b] border-blue-500"
+          : ""
+      }`}
+    />
+  ))}
+</div>
           </div>
         );
       case 4:
