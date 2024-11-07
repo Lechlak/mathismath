@@ -336,7 +336,7 @@ function MathFunGame() {
                         : RegularIcons.faCircle // Use regular (empty) icon when not selected
                     }
                     className={`${
-                      selectedFactFamily.includes(num + 1) ? "text-blue-500" : "hidden"
+                      selectedFactFamily.includes(num + 1) ? "text-blue-500" : "invisible"
                     }`} // Hide the icon visually when not selected
                   />
                   {/* Text content of the button */}
