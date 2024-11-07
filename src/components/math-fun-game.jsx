@@ -271,7 +271,7 @@ function MathFunGame() {
                         : [...prev, operation]
                     )
                   }
-                  className={`rounded-full border border-gray-300 py-1 px-2 ${
+                  className={`rounded-full border border-gray-300 py-1 px-3 ${
                     selectedOperations.includes(operation)
                       ? "bg-[#e0f2ff] border-blue-500 border-2"
                       : ""
@@ -294,7 +294,7 @@ function MathFunGame() {
         )
       }
       className={`rounded-full border border-gray-300 py-1 ${
-        num + 1 === 10 || num + 1 === 12 ? "px-3" : "px-2"
+        num + 1 === 10 || num + 1 === 12 ? "px-2" : "px-2"
       } ${
         selectedFactFamily.includes(num + 1)
           ? "bg-[#e0f2ff] border-blue-500 border-2"
