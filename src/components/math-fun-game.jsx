@@ -227,7 +227,7 @@ function MathFunGame() {
 
   return (
     <div className="p-4 relative bg-white text-black space-y-10">
-      <div className="absolute top-0 right-0 flex space-x-8">
+      <div className="absolute top-0 right-0 flex space-x-8 px-2 py-1">
         {currentProblem && (
           <Button
             text="Home"
@@ -387,11 +387,11 @@ function MathFunGame() {
             ))}
           </div>
           {selectedAnswer === currentProblem.answer ? (
-            <div className="text-green-600 ">Correct! 🎉</div>
+            <div className="text-green-600 ">Correct!</div>
           ) : (
             selectedAnswer !== null && (
               <div className="space-y-4">
-                <div className="text-red-600 ">Try again</div>
+                <div className="text-red-600 ">Try again. You got this!</div>
                 {renderVisualProblem()}
               </div>
             )

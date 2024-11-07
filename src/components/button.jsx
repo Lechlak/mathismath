@@ -9,7 +9,7 @@ function Button({ text, icon, imageSrc, onClick, className }) {
     <button
       onClick={onClick}
       className={
-        "text-gray-800 py-1 px-1 rounded-[2px] hover:bg-gray-200 transition-colors duration-200 " +
+        "text-gray-800 py-2 px-2 rounded-[2px] hover:bg-gray-200 transition-colors duration-200 " +
         className
       }
     >
