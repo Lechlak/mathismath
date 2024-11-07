@@ -369,6 +369,7 @@ function MathFunGame() {
         return (
           <div>
             {/* ... your game content (currentProblem, options, etc.) ... */}
+            {currentProblem && (
             <div className="flex flex-col items-center space-y-10">
               <h1 className=" text-lg">{currentProblem.question}</h1>
               <div className="flex space-x-8">
@@ -418,14 +419,13 @@ function MathFunGame() {
                     alt="Celebration gif showing happy animation"
                     className="max-w-full max-h-full"
                   />
-                </div>
-              )}
-            </div>
-          </div>
-        );
-      default:
-        return null;
-    }
+                            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
   };
 
   return (
@@ -451,58 +451,12 @@ function MathFunGame() {
         )}
       </div>
       {!currentProblem && (
-        <div className="flex flex-col items-center space-y-10">
-        <h1 className=" text-lg">{currentProblem.question}</h1>
-        <div className="flex space-x-8">
-          {options.map((option) => (
-            <Button
-              key={option}
-              text={option}
-              onClick={() => handleAnswer(option)}
-              className={`rounded-full border border-gray-300 ${
-                selectedAnswer === option
-                  ? option === currentProblem.answer
-                    ? "bg-green-500"
-                    : "bg-gray-300"
-                  : ""
-              }`}
-              disabled={selectedAnswer === option}
-            />
-          ))}
-        </div>
-        {selectedAnswer === currentProblem.answer ? (
-          <div className="text-green-600 ">Correct!</div>
-        ) : (
-          selectedAnswer !== null && (
-            <div className="space-y-4">
-              <div className="text-red-600 ">Try again. You got this!</div>
-              {renderVisualProblem()}
-            </div>
-          )
-        )}
-        {currentImage && (
-          <div className="relative w-full h-full">
-            <img
-              src={currentImage}
-              alt="Progress image showing theme"
-              className="w-full h-full object-cover"
-            />
-            <div
-              className="absolute top-0 left-0 h-full bg-blue-600 opacity-50"
-              style={{ width: `${(correctAnswers % 5) * 20}%` }}
-            ></div>
-          </div>
-        )}
-        {showCelebration && (
-          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-            <img
-              src={celebrationGif}
-              alt="Celebration gif showing happy animation"
-              className="max-w-full max-h-full"
-            />
-          </div>
-        )}
-      
+        <div className="flex flex-col justify-center items-center h-screen space-y-10">
+          <img
+            src="/math-is-math.png"
+            alt="Game logo"
+            className="h-[200px] mb-8"
+          />
 
           {renderStepContent()} {/* Render content based on current step */}
 
