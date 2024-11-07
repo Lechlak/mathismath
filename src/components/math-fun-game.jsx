@@ -450,7 +450,7 @@ function MathFunGame() {
           />
         )}
       </div>
-      {!currentProblem && (
+      
         <div className="flex flex-col justify-center items-center h-screen space-y-10">
           <img
             src="/math-is-math.png"
@@ -478,7 +478,7 @@ function MathFunGame() {
             />
           )}
         </div>
-      )}
+      
     </div>
   );
 }
